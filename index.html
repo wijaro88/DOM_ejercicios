@@ -14,16 +14,10 @@
     </header>
 
     <main>
+    <div class="align">
         <form target="_self" class="formulario">
             <h1 class="formulario__titulo">Registro de ventas de Perfumes</h1>
-            <h3>Seleccione el vendedor: </h3>
-            
-            <label for="vendedor">Vendedor: </label>
-            <select class="formulario__input" name="vendedor" id="vendedor" required>
-                <option value="">Seleccione el vendedor</option>
-                <option value="juana">Juana</option>
-                <option value="pedro">Pedro</option>
-            </select>
+            <h3 class="formulario__input" id="vendedor"> Vendedor: Juana</h3>         
             <h3>Digite las cantidades a Registrar:</h3>
             <h5>De los siguientes tipos de Productos</h5>
             <label for="acua" class="formulario__label" >Acua - 200 USD</label>
@@ -36,17 +30,39 @@
             <input class="formulario__input" type="number" id="frescura" min="0" max="100"required>
 
 
-            <input  id="send-button" type="submit" name="send-button">
-            <input type="reset" value="Borrar" >
+            
         </form>
-        </div>
+    </div>
+    <div class="align">
+        <form target="_self" class="formulario">
+            <h1 class="formulario__titulo">Registro de ventas de Perfumes</h1>
+            <h3 class="formulario__input" id="vendedor2">Vendedor: Pedro</h3>         
+            <h3>Digite las cantidades a Registrar:</h3>
+            <h5>De los siguientes tipos de Productos</h5>
+            <label for="acua2" class="formulario__label" >Acua - 200 USD</label>
+            <input class="formulario__input" type="number" id="acua2" min="0" max="100" required>
+            <label for="emocion2" class="formulario__label" >Emoción - 180 USD</label>
+            <input class="formulario__input" type="number"id="emocion2" min="0" max="100"required>
+            <label for="alegria2" class="formulario__label" >Alegria - 160 USD</label>
+            <input class="formulario__input" type="number" id="alegria2" min="0" max="100"required>
+            <label for="frescura2" class="formulario__label" >Frescura - 150 USD</label>
+            <input class="formulario__input" type="number" id="frescura2" min="0" max="100"required>
 
+
+            
+        </form>
+    </div>
+    <div>
+            <input  id="send-button" type="submit" name="send-button">
+            <input type="reset" value="Borrar" >    
+    
+    </div>
     </main>
 
     <footer>
-<h1>aca se van ver las ventas</h1>
-        <div class="container2" id="container">
 
+        <div class="container2" id="container">
+<h1>Ventas Realizadas este Dia por los Vendedores</h1>
         </div>
 
 </footer>

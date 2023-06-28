@@ -1,98 +1,109 @@
 window.onload = function () {
-
     const selectElement = document.forms[0].vendedor;
+    const selectElement2 = document.forms[1].vendedor2;
 
-    const container = document.getElementById("container");
-
+    // const container = document.getElementById("container");
     const sendButton = document.getElementById("send-button");
-
     // const finish = document.getElementById("finish");
 
     sendButton.addEventListener('click', validate);
-
-
     // finish.addEventListener('click', completarcompra);
 
-    product_list = [];
-    let ids = 0;
-
     let elementos = document.forms[0].elements;
+    let elementos2 = document.forms[1].elements;
+    // console.log(elementos);
+    // console.log(elementos2);
 
-    function validate(e) {
-        e.preventDefault();
-        let vendedor = elementos[0].value;
-        let acua = elementos[1].value;
-        let emocion = elementos[2].value;
-        let alegria = elementos[3].value;
-        let frescura = elementos[4].value;
+    function validate(_e) {
 
-        if (vendedor.selectedIndex == 0) {
+        let vendedor = "Juana";
+        let acua = elementos[0].value;
+        let emocion = elementos[1].value;
+        let alegria = elementos[2].value;
+        let frescura = elementos[3].value;
+        let vendedor2 = "Pedro";
+        let acua2 = elementos2[0].value;
+        let emocion2 = elementos2[1].value;
+        let alegria2 = elementos2[2].value;
+        let frescura2 = elementos2[3].value;
+        let totalventas;
+        let totalventas2;
 
+
+        if (acua == null || isNaN(acua) || acua < 0 || acua > 99) {
             return false;
-        }
-        else if (acua == null || isNaN(acua) || acua < 0 || acua > 99) {
+        } else if (emocion == null || isNaN(emocion) || emocion < 0 || emocion > 99) {
             return false;
-        }
-        else if (emocion == null || isNaN(emocion) || emocion < 0 || emocion > 99) {
+        } else if (alegria == null || isNaN(alegria) || alegria < 0 || alegria > 99) {
             return false;
-        }
-        else if (alegria == null || isNaN(alegria) || alegria < 0 || alegria > 99) {
+        } else if (frescura == null || isNaN(frescura) || frescura < 0 || frescura > 99) {
             return false;
-        }
-        else if (frescura == null || isNaN(frescura) || frescura < 0 || frescura > 99) {
+        } else if (acua2 == null || isNaN(acua2) || acua2 < 0 || acua2 > 99) {
+            return false;
+        } else if (emocion2 == null || isNaN(emocion2) || emocion2 < 0 || emocion2 > 99) {
+            return false;
+        } else if (alegria2 == null || isNaN(alegria2) || alegria2 < 0 || alegria2 > 99) {
+            return false;
+        } else if (frescura2 == null || isNaN(frescura2) || frescura2 < 0 || frescura2 > 99) {
             return false;
         } else {
-            addVenta();
+            Calculo(vendedor, acua, emocion, alegria, frescura, vendedor2, acua2, emocion2, alegria2, frescura2);
         }
-
     }
 
-function addVenta() {
-    let id = ids;
-    let vendedor = elementos[0];
-    let acua = elementos[1].value;
-    let emocion = elementos[2].value;
-    let alegria = elementos[3].value;
-    let frescura = elementos[4].value;
+    function Calculo(vendedor, acua, emocion, alegria, frescura, vendedor2, acua2, emocion2, alegria2, frescura2) {
 
-    let venta = new Venta (id, vendedor, acua, emocion, alegria, frescura);
-    // console.log("venta.id");
-    // console.log(id, vendedor, acua,emocion,alegria,frescura);
-    ids += 1;
-
-    const element = document.createElement('div');
-    element.className = "container2";
-
+        totalventas = (acua * 200 + emocion * 180 + alegria * 160 + frescura * 150);
+        totalventas2 = (acua2 * 200 + emocion2 * 180 + alegria2 * 160 + frescura2 * 150);
+        let EmpMes;
+        if (totalventas > totalventas2) {
+            EmpMes = vendedor;
+        } else if (totalventas2 > totalventas) {
+            EmpMes = vendedor2;
+        } else {
+            EmpMes = "Ventas Iguales";
+        }
+        console.log(`las ventas de Juana fueron: ${totalventas}`);
+        console.log(`las ventas de pedro fueron: ${totalventas2}`);
+        console.log(`el empleado con las mejores ventas este mes es: ${EmpMes}`);
+        return (EmpMes,totalventas,totalventas2);
+    }
+    console.log(`las ventas de Juana fueron: ${totalventas}`);
+        console.log(`las ventas de pedro fueron: ${totalventas2}`);
+        console.log(`el empleado con las mejores ventas este mes es: ${EmpMes}`);
+    // const container2 = document.getElementById("container");
+    // const element = document.createElement('div');
+    // element.className = "container2";
     // element.innerHTML =
     //     `<p>
-    //     <strong>${vendedor}</strong>
-    //     <br>
-    //     Ventas tipo Acua: ${acua}   
-    //     Ventas tipo Emocion: ${emocion}   
-    //     Ventas tipo Alegria: ${alegria}
-    //     Ventas tipo Frescura: ${frescura}
-    //     Total de Ventas ${venta.getTotal()}
+    //         <strong>${vendedor}</strong>
+    //         <br>
+    //         Ventas tipo Acua: ${elementos[0].value * 200}   ;
+    //         Ventas tipo Emocion: ${elementos[1].value *180} ;  
+    //         Ventas tipo Alegria: ${elementos[2].value*160};
+    //         Ventas tipo Frescura: ${elementos[3].value*150};
+            
+    //         </p>
+    //         <br>
+    //         <p>
+    //         <strong>${vendedor2}</strong>
+    //         <br>
+    //         Ventas tipo Acua: ${elementos2[0].value* 200}   
+    //         Ventas tipo Emocion: ${elementos2[1].value*180}   
+    //         Ventas tipo Alegria: ${elementos2[2].value*160}
+    //         Ventas tipo Frescura: ${elementos2[3].value*150}
+            
     // </p>
-    // <input type="button" class="button" name="delete" value="Eliminar">
-    // `;
+        
+    //     `;
 
-    container.appendChild(element);
-    product_list.push(venta);
-    document.forms[0].reset();
-    console.log(product_list);
+    // container2.appendChild(element);
 
-    // this.id = ids;
-    // this.vendedor = vendedor;
-    // this.acua = acua;
-    // this.emocion = emocion;
-    // this.alegria = alegria;
-    // this.frescura = frescura;
+};
 
-    // console.log("ID:"+ this.id);
+// Total de Ventas ${totalventas};
 
-}
-}
-
+// Total de Ventas ${totalventas2}
 
 
 
