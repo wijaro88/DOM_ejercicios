@@ -2,33 +2,30 @@ window.onload = function () {
     const selectElement = document.forms[0].vendedor;
     const selectElement2 = document.forms[1].vendedor2;
 
-    // const container = document.getElementById("container");
+
     const sendButton = document.getElementById("send-button");
-    // const finish = document.getElementById("finish");
+
 
     sendButton.addEventListener('click', validate);
-    // finish.addEventListener('click', completarcompra);
 
     let elementos = document.forms[0].elements;
     let elementos2 = document.forms[1].elements;
-    // console.log(elementos);
-    // console.log(elementos2);
     const vendedor2 = "Pedro";
     const vendedor = "Juana";
 
     function validate(_e) {
 
-        
+
         let acua = elementos[0].value;
         let emocion = elementos[1].value;
         let alegria = elementos[2].value;
         let frescura = elementos[3].value;
-       
+
         let acua2 = elementos2[0].value;
         let emocion2 = elementos2[1].value;
         let alegria2 = elementos2[2].value;
         let frescura2 = elementos2[3].value;
-       
+
 
 
         if (acua == null || isNaN(acua) || acua < 0 || acua > 99) {
@@ -48,39 +45,35 @@ window.onload = function () {
         } else if (frescura2 == null || isNaN(frescura2) || frescura2 < 0 || frescura2 > 99) {
             return false;
         } else {
-            // Calculo(vendedor, acua, emocion, alegria, frescura, vendedor2, acua2, emocion2, alegria2, frescura2);
-            let resultados= Calculo(vendedor, acua, emocion, alegria, frescura, vendedor2, acua2, emocion2, alegria2, frescura2)    
-            // console.log(resultados[0]);
-            // console.log(parseInt(resultados[1])); 
-            // console.log(parseInt(resultados[2]));
+            let resultados = Calculo(vendedor, acua, emocion, alegria, frescura, vendedor2, acua2, emocion2, alegria2, frescura2)
             const container2 = document.getElementById("container");
-    const element = document.createElement('div');
-    element.className = "container2";
-    element.innerHTML =
-        `<p>
+            const element = document.createElement('div');
+            element.className = "container2";
+            element.innerHTML =
+                `<p>
             <strong>${vendedor}</strong>
             <br>
 
             Ventas tipo Acua: ${elementos[0].value * 200}   ;
-            Ventas tipo Emocion: ${elementos[1].value *180} ;  
-            Ventas tipo Alegria: ${elementos[2].value*160};
-            Ventas tipo Frescura: ${elementos[3].value*150};
+            Ventas tipo Emocion: ${elementos[1].value * 180} ;  
+            Ventas tipo Alegria: ${elementos[2].value * 160};
+            Ventas tipo Frescura: ${elementos[3].value * 150};
             
             </p>
             <br>
             <p>
             <strong>${vendedor2}</strong>
             <br>
-            Ventas tipo Acua: ${elementos2[0].value* 200}   
-            Ventas tipo Emocion: ${elementos2[1].value*180}   
-            Ventas tipo Alegria: ${elementos2[2].value*160}
-            Ventas tipo Frescura: ${elementos2[3].value*150}
+            Ventas tipo Acua: ${elementos2[0].value * 200}   
+            Ventas tipo Emocion: ${elementos2[1].value * 180}   
+            Ventas tipo Alegria: ${elementos2[2].value * 160}
+            Ventas tipo Frescura: ${elementos2[3].value * 150}
             
     </p>
         
         `;
 
-    container2.appendChild(element);
+            container2.appendChild(element);
 
         }
     }
@@ -97,37 +90,10 @@ window.onload = function () {
         } else {
             EmpMes = "Ventas Iguales";
         }
-        // console.log(typeof(totalventas));
         console.log(`las ventas de Juana fueron: ${totalventas}`);
         console.log(`las ventas de pedro fueron: ${totalventas2}`);
         console.log(`el empleado con las mejores ventas este mes es: ${EmpMes}`);
-        let arra=[EmpMes,totalventas,totalventas2];
+        let arra = [EmpMes, totalventas, totalventas2];
         return arra;
     }
-        
-
-                // console.log(`las ventas de Juana fueron: ${totalventas}`);
-        // console.log(`las ventas de pedro fueron: ${totalventas2}`);
-        // console.log(`el empleado con las mejores ventas este mes es: ${EmpMes}`);
-    
-    
 };
-
-// Total de Ventas ${totalventas};
-
-// Total de Ventas ${totalventas2}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
