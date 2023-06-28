@@ -20,7 +20,7 @@ window.onload = function () {
 
     function validate(e) {
         e.preventDefault();
-        let vendedor = elementos[0];
+        let vendedor = elementos[0].value;
         let acua = elementos[1].value;
         let emocion = elementos[2].value;
         let alegria = elementos[3].value;
@@ -55,26 +55,26 @@ function addVenta() {
     let alegria = elementos[3].value;
     let frescura = elementos[4].value;
 
-    // let venta = new Venta(id, vendedor, acua, emocion, alegria, frescura);
+    let venta = new Venta (id, vendedor, acua, emocion, alegria, frescura);
     // console.log("venta.id");
-    console.log(id, vendedor, acua,emocion,alegria,frescura);
+    // console.log(id, vendedor, acua,emocion,alegria,frescura);
     ids += 1;
 
     const element = document.createElement('div');
     element.className = "container2";
 
-    element.innerHTML =
-        `<p>
-        <strong>${vendedor}</strong>
-        <br>
-        Ventas tipo Acua: ${acua}   
-        Ventas tipo Emocion: ${emocion}   
-        Ventas tipo Alegria: ${alegria}
-        Ventas tipo Frescura: ${frescura}
-        Total de Ventas ${venta.getTotal()}
-    </p>
-    <input type="button" class="button" name="delete" value="Eliminar">
-    `;
+    // element.innerHTML =
+    //     `<p>
+    //     <strong>${vendedor}</strong>
+    //     <br>
+    //     Ventas tipo Acua: ${acua}   
+    //     Ventas tipo Emocion: ${emocion}   
+    //     Ventas tipo Alegria: ${alegria}
+    //     Ventas tipo Frescura: ${frescura}
+    //     Total de Ventas ${venta.getTotal()}
+    // </p>
+    // <input type="button" class="button" name="delete" value="Eliminar">
+    // `;
 
     container.appendChild(element);
     product_list.push(venta);
